@@ -1,10 +1,11 @@
-
 // const express = require('express'); // 3rd party package 
 // const { MongoClient } = require("mongodb")
-
+// import dotenv from "dotenv"
 import express from "express";
 import  { MongoClient } from "mongodb";
 
+// dotenv.config()
+// console.log(process.env)
 
 const app = express();
 const PORT = 9000;
@@ -76,7 +77,12 @@ const movies = [
     }
     ]
   
+// const MONGO_URL ="mongodb://localhost"
 const MONGO_URL ="mongodb://localhost"
+// mongodb+srv://shaikaziya:<password>@cluster0.bpnjhgc.mongodb.net/?retryWrites=true&w=majority
+
+// const MONGO_URL ="mongodb+srv://shaikaziya:shaikaziya123@cluster0.bpnjhgc.mongodb.net"
+
 
 async function createConnection() {
     const client = new MongoClient(MONGO_URL)
@@ -86,7 +92,7 @@ async function createConnection() {
   }
 
 const client =  await createConnection();
-
+app.use(express.json())
 
 // Rest Api endpoints
 
@@ -142,6 +148,7 @@ app.get("/movies/:id", async (request, response) =>  {
 });
 
 
+
 //Delete a movie id
 
 app.delete("/movies/:id", async (request, response) =>  {    
@@ -153,6 +160,18 @@ app.delete("/movies/:id", async (request, response) =>  {
     .collection("movies")
     .deleteOne({ id: id })
     response.send(movie)
+});
+app.post("/movies", async (request, response) =>  {    
+    
+    const newMovies=request.body;
+    
+    //db.movies.findOne({id: "102"})
+    const result = await client
+    .db("B37WD")
+    .collection("movies")
+    .insertMany(newMovies)
+    response.send(result)
+
 });
 
 
