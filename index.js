@@ -1,11 +1,13 @@
 // const express = require('express'); // 3rd party package 
 // const { MongoClient } = require("mongodb")
-// import dotenv from "dotenv"
+
+
+import dotenv from "dotenv"
 import express from "express";
 import  { MongoClient } from "mongodb";
 
-// dotenv.config()
-// console.log(process.env)
+dotenv.config()
+console.log(process.env)
 
 const app = express();
 const PORT = 9000;
@@ -79,9 +81,8 @@ const movies = [
   
 // const MONGO_URL ="mongodb://localhost"
 const MONGO_URL ="mongodb://localhost"
-// mongodb+srv://shaikaziya:<password>@cluster0.bpnjhgc.mongodb.net/?retryWrites=true&w=majority
 
-// const MONGO_URL ="mongodb+srv://shaikaziya:shaikaziya123@cluster0.bpnjhgc.mongodb.net"
+
 
 
 async function createConnection() {
