@@ -25,5 +25,5 @@ export async function updateMovieById(id,updateMovie) {
     return await client
         .db("B37WD")
         .collection("movies")
-        .updateOne({ id: id },{$Set:updateMovie})
+        .updateOne({ id: id }, { $set: updateMovie })
 }

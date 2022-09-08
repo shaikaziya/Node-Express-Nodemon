@@ -55,7 +55,7 @@ router.put("/:id", async (request, response) =>  {
     const updateMovie=request.body;
     
     //db.movies.findOne({id: "102"})
-    const result = await updateMovieById(updateMovie,id)
+    const result = await updateMovieById(id,updateMovie)
     response.send(result)
 
 });

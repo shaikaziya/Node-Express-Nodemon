@@ -8,7 +8,7 @@ import  { MongoClient } from "mongodb";
 import { getAllMovies, getAllMoviesById, deleteMoviesById, insertMovies,updateMovieById } from "./helper.js";
 import {moviesRouter} from './routes/movies.js'
 dotenv.config()
-console.log(process.env)
+// console.log(process.env)
 
 const app = express();
 const PORT = process.env.PORT
@@ -82,7 +82,7 @@ const PORT = process.env.PORT
   
 // const MONGO_URL ="mongodb://localhost"
 
-const MONGO_URL =process.env.MONGO_URL
+const MONGO_URL=process.env.MONGO_URL
 
 app.get("/", (request, response) =>  {
     response.send("Hello Everyone")
