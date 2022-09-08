@@ -21,3 +21,9 @@ export async function getAllMoviesById(id) {
         .collection("movies")
         .findOne({ id: id })
 }
+export async function updateMovie(id,updateMovie) {
+    return await client
+        .db("B37WD")
+        .collection("movies")
+        .updateOne({ id: id },{$set:updateMovie})
+}
