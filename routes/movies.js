@@ -1,5 +1,5 @@
 import express from "express";
-import {getAllMovies,insertMovies,deleteMoviesById,getAllMoviesById,updateMovie} from "../helper.js"
+import {getAllMovies,insertMovies,deleteMoviesById,getAllMoviesById,updateMovieById} from "../helper.js"
 
 const router=express.Router();
 
@@ -55,7 +55,7 @@ router.put("/", async (request, response) =>  {
     const updateMovie=request.body;
     
     //db.movies.findOne({id: "102"})
-    const result = await updateMovie(updateMovie,id)
+    const result = await updateMovieById(updateMovie,id)
     response.send(result)
 
 });
