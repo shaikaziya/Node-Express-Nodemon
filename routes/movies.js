@@ -50,7 +50,7 @@ router.post("/", async (request, response) =>  {
 
 });
 
-router.put("/", async (request, response) =>  {    
+router.put("/:id", async (request, response) =>  {    
     const{id}=request.params;
     const updateMovie=request.body;
     
