@@ -1,5 +1,5 @@
 import express from "express";
-import {getAllMovies,deleteMoviesById,getAllMoviesById,updateMovieById} from "../helper.js"
+import {getAllMovies,addMovies,deleteMoviesById,getAllMoviesById,updateMovieById} from "../helper.js"
 
 const router=express.Router();
 
@@ -10,7 +10,6 @@ router.get("/", async (request, response) =>  {
     if(request.query.rating){
         request.query.rating = +request.query.rating;
     }
-   
     console.log(request.query)
     const movie = await getAllMovies(request);
     response.send(movie);
@@ -40,12 +39,13 @@ router.delete("/:id", async (request, response) =>  {
     const movie = await deleteMoviesById(id)
     response.send(movie)
 });
+
 router.post("/", async (request, response) =>  {    
     
     const newMovies=request.body;
     
     //db.movies.findOne({id: "102"})
-    const result = await updateMovieById(newMovies)
+    const result = await addMovies(newMovies)
     response.send(result)
 
 });

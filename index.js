@@ -5,7 +5,6 @@
 import dotenv from "dotenv"
 import express from "express";
 import  { MongoClient } from "mongodb";
-import { getAllMovies, getAllMoviesById, deleteMoviesById, insertMovies,updateMovieById } from "./helper.js";
 import {moviesRouter} from './routes/movies.js'
 dotenv.config()
 // console.log(process.env)

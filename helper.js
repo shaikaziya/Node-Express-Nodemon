@@ -3,11 +3,11 @@ import { client } from "./index.js";
 export async function getAllMovies(request) {
     return await client.db("B37WD").collection("movies").find(request.query).toArray();
 }
-export async function insertMovies(newMovies) {
+export async function getAllMoviesById(id) {
     return await client
         .db("B37WD")
         .collection("movies")
-        .insertMany(newMovies)
+        .findOne({ id: id })
 }
 export async function deleteMoviesById(id) {
     return await client
@@ -15,11 +15,11 @@ export async function deleteMoviesById(id) {
         .collection("movies")
         .deleteOne({ id: id })
 }
-export async function getAllMoviesById(id) {
+export async function addMovies(newMovies) {
     return await client
         .db("B37WD")
         .collection("movies")
-        .findOne({ id: id })
+        .insertMany(newMovies)
 }
 export async function updateMovieById(id,updateMovie) {
     return await client
