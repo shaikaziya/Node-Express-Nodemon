@@ -1,7 +1,7 @@
 // const express = require('express'); // 3rd party package 
 // const { MongoClient } = require("mongodb")
 
-
+import cors from "cors";
 import dotenv from "dotenv"
 import express from "express";
 import  { MongoClient } from "mongodb";
@@ -12,6 +12,7 @@ dotenv.config()
 // console.log(process.env)
 
 const app = express();
+app.use(cors())
 const PORT = process.env.PORT
 
 // const MONGO_URL ="mongodb://localhost"
