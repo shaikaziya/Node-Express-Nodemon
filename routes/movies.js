@@ -1,11 +1,11 @@
 import express from "express";
 import {getAllMovies,addMovies,deleteMoviesById,getAllMoviesById,updateMovieById} from "../helper.js"
-
+import { auth } from "../middleware/auth.js"
 const router=express.Router();
 
 
 
-router.get("/", async (request, response) =>  {
+router.get("/",async (request, response) =>  {
 
     if(request.query.rating){
         request.query.rating = +request.query.rating;

@@ -9,7 +9,7 @@ const router = express.Router();
 //post method  - to insert data to db
 router.post("/signup", async (request, response) =>  {  
     const { username, password } = request.body;
-    console.log(username, password);
+    
     //db.movies.insertMany(movies) 
   const isUserExist = await getUserByName(username)
   console.log(isUserExist);
