@@ -43,7 +43,6 @@ if  (!userFromDB ) {
   return;   
 }
 const storedPassword = userFromDB.password;
-
   const isPasswordMatch = await bcrypt.compare(password, storedPassword)
   if  (!isPasswordMatch ) {
     response.status(400).send({ message: "Invalid credentials" });
